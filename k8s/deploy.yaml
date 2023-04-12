@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: koa
+  name: section-project-deployment
   labels:
-    app: koa
+    app: console-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: koa
+      app: console-project
   template:
     metadata:
       labels:
-        app: koa
+        app: console-project
     spec:
       containers:
-      - name: koa
-        image: ghcr.io/${IMAGE_NAME}:main
-        imagePullPolicy: Always
-        resources:
-          requests:
-            cpu: ".1"
-            memory: ".1Gi"
-          limits:
-            cpu: ".1"
-            memory: ".1Gi"
-        ports:
-        - containerPort: 3000
+        - name: console-project
+          image: ghcr.io/${IMAGE_NAME}:main
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: ".1"
+              memory: ".1Gi"
+            limits:
+              cpu: ".1"
+              memory: ".1Gi"
+          ports:
+            - containerPort: 3000
